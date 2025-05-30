@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const app = express();
 
 app.use(express.json());
+app.use(express.static('dist'))
 morgan.token("content", function getContent (req) { return JSON.stringify(req.body)})
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time[digits] ms :content'));
